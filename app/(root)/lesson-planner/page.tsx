@@ -19,7 +19,7 @@ import withAuth from "@/Provider/withAuth";
 import { motion } from "framer-motion";
 
 function LessonPlanner() {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<Record<string, string>>({
     topic: "",
     gradeLevel: "",
     mainConcept: "",
@@ -27,6 +27,7 @@ function LessonPlanner() {
     objectives: "",
     lessonOutline: "",
   });
+  
   const [loading, setLoading] = useState(false);
   const [generatedContent, setGeneratedContent] = useState("");
   const [editableContent, setEditableContent] = useState("");
@@ -87,7 +88,7 @@ are properly structured`;
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        <Card className="bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-30 border border-gray-100 bg-opacity-90 backdrop-blur-md shadow-lg border border-black text-white dark:text-gray-300">
+        <Card className="bg-gray-400 rounded-md bg-clip-padding backdrop-filter bg-opacity-90 backdrop-blur-md shadow-lg border border-black text-white dark:text-gray-300">
           <CardHeader>
             <CardTitle className="text-center text-3xl font-bold text-black dark:text-white">
               Lesson Planner
@@ -150,7 +151,6 @@ are properly structured`;
                       onChange={(e) => setEditableContent(e.target.value)}
                       className="h-64 w-full border border-gray-600 p-2 rounded-md bg-gray-900"
                     />
-                    {/* ✅ Ensure Save button appears */}
                     <div className="flex justify-end mt-4 space-x-4">
                       <Button
                         onClick={() => setIsEditing(false)}
