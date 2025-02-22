@@ -87,7 +87,6 @@ const generateLessonPlan = async () => {
 
     const result = await model.generateContent(prompt);
     const response = await result.response.text();
-    console.log(response);
     setGeneratedContent(response);
     setEditableContent(response);
   } catch (error) {
@@ -120,6 +119,6 @@ const generateLessonPlan = async () => {
 | `framer-motion`       | Animations                         |
 | `react-markdown`      | Markdown rendering                 |
 | `google-generative-ai` | Gemini API integration             |
-| `react-to-print`      | Print & save as PDF                |
+| `jsPdf`      | Print & save as PDF                |
 
 
